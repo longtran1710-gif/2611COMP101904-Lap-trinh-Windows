@@ -1,4 +1,4 @@
-# Lab02 - C# cơ bản: quản lý mảng số nguyên
+# Lab02 : Quản lý mảng số nguyên
 ## 1. Mục tiêu
 - Ôn lại cấu trúc chương trình C# Console.
 - Sử dụng biến, kiểu dữ liệu, toán tử, điều kiện và vòng lặp.
