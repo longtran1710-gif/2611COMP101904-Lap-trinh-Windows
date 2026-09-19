@@ -1,4 +1,3 @@
-using Lab03;
 using System;
 using System.Globalization;
 
@@ -45,6 +44,43 @@ namespace Lab03
                 }
             }
         }
+        static double NhapDiem(string nhan)
+        {
+            while (true)
+            {
+                Console.Write(nhan);
+                string s = (Console.ReadLine() ?? "").Trim().Replace(',', '.');
+
+                if (!double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out double diem))
+                {
+                    Console.WriteLine("Diem khong hop le: hay nhap mot so (vi du 8.5). Nhap lai!");
+                    continue;
+                }
+
+                if (diem < 0 || diem > 10)
+                {
+                    Console.WriteLine("Diem khong hop le: diem phai tu 0 den 10. Nhap lai!");
+                    continue;
+                }
+
+                return diem;
+            }
+        }
+
+        static DateTime NhapNgaySinh(string nhan)
+        {
+            while (true)
+            {
+                Console.Write(nhan);
+                string s = (Console.ReadLine() ?? "").Trim();
+
+                if (DateTime.TryParseExact(s, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                                           DateTimeStyles.None, out DateTime ngaySinh))
+                    return ngaySinh;
+
+                Console.WriteLine("Ngay sinh khong hop le: nhap theo dinh dang dd/MM/yyyy. Nhap lai!");
+            }
+        }
 
         static void Them()
         {
@@ -56,14 +92,12 @@ namespace Lab03
                 Console.Write("Ho ten: ");
                 string ten = Console.ReadLine();
 
-                Console.Write("Ngay sinh (dd/MM/yyyy): ");
-                DateTime ns = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                DateTime ns = NhapNgaySinh("Ngay sinh (dd/MM/yyyy): ");
 
                 Console.Write("Ma lop: ");
                 string lop = Console.ReadLine();
 
-                Console.Write("Diem TB: ");
-                double diem = double.Parse(Console.ReadLine());
+                double diem = NhapDiem("Diem TB (0-10): ");
 
                 SinhVien sv = new SinhVien(ma, ten, ns, lop, diem);
                 ql.Them(sv);
@@ -109,13 +143,16 @@ namespace Lab03
             {
                 Console.Write("Nhap ma: ");
                 string ma = Console.ReadLine();
-                Console.Write("Diem moi: ");
-                double diem = double.Parse(Console.ReadLine());
 
-                if (ql.SuaDiem(ma, diem))
-                    Console.WriteLine("Sua thanh cong");
-                else
+                if (ql.TimTheoMa(ma) == null)
+                {
                     Console.WriteLine("Khong tim thay");
+                    return;
+                }
+
+                double diem = NhapDiem("Diem moi (0-10): ");
+                ql.SuaDiem(ma, diem);
+                Console.WriteLine("Sua thanh cong");
             }
             catch (Exception e)
             {
@@ -135,6 +172,11 @@ namespace Lab03
         static void SapXep()
         {
             var ds = ql.SapXepTheoDiem();
+            if (ds.Count == 0)
+            {
+                Console.WriteLine("Danh sach rong");
+                return;
+            }
             foreach (var sv in ds)
                 Console.WriteLine(sv.LayThongTin());
         }
