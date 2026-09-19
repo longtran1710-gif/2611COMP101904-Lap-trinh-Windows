@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Lab03
@@ -38,7 +39,8 @@ namespace Lab03
 
         public List<SinhVien> TimTheoTen(string ten)
         {
-            return ds.Where(x => x.HoTen.Contains(ten)).ToList();
+            string tuKhoa = (ten ?? "").Trim();
+            return ds.Where(x => x.HoTen.Contains(tuKhoa, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public List<SinhVien> SapXepTheoDiem()
@@ -57,4 +59,3 @@ namespace Lab03
         }
     }
 }
-
