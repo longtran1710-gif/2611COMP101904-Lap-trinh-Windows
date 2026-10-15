@@ -16,7 +16,6 @@ partial class FrmProduct
         }
         base.Dispose(disposing);
     }
-
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
@@ -86,7 +85,6 @@ partial class FrmProduct
         ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
         cmsProducts.SuspendLayout();
         SuspendLayout();
-
         menuStrip1.Items.AddRange(new ToolStripItem[] { mnuFile, mnuQuanLy, mnuTroGiup });
         menuStrip1.Name = "menuStrip1";
         mnuFile.Name = "mnuFile";
@@ -140,7 +138,6 @@ partial class FrmProduct
         mnuGioiThieu.Name = "mnuGioiThieu";
         mnuGioiThieu.Text = "Giới thiệu";
         mnuGioiThieu.Click += mnuGioiThieu_Click;
-
         toolStrip1.Items.AddRange(new ToolStripItem[]
         {
             tsbThem, tsbSua, tsbXoa, tsbLamMoi, tssSep, tslTimKiem, tstTimKiem, tsbTimKiem
@@ -172,10 +169,8 @@ partial class FrmProduct
         tsbTimKiem.Text = "Tìm kiếm";
         tsbTimKiem.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbTimKiem.Click += TimKiem_Click;
-
         statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus, lblCount, lblTongTon });
         statusStrip1.Name = "statusStrip1";
-
         lblStatus.Name = "lblStatus";
         lblStatus.Text = "Sẵn sàng";
         lblStatus.Spring = true;
@@ -186,7 +181,7 @@ partial class FrmProduct
         lblTongTon.Name = "lblTongTon";
         lblTongTon.Text = "Tổng giá trị tồn kho: 0 đ";
         lblTongTon.BorderSides = ToolStripStatusLabelBorderSides.Left;
-        
+
         grpThongTin.Name = "grpThongTin";
         grpThongTin.Text = "Thông tin sản phẩm";
         grpThongTin.Dock = DockStyle.Top;
