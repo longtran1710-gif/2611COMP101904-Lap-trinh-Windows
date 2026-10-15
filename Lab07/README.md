@@ -40,5 +40,3 @@ Hàm `OpenChild<T>()` duyệt `MdiChildren` tìm Form có kiểu `T`. Nếu có 
 **5. Khi nào nên dùng constructor, khi nào nên dùng property để truyền dữ liệu giữa các Form?**
 Dùng constructor cho dữ liệu bắt buộc, Form không hoạt động được nếu thiếu (FrmMain cần `User`). Dùng property cho dữ liệu tùy chọn, dữ liệu gán sau khi tạo Form, hoặc để lấy kết quả ngược lại sau khi Form đóng (FrmLogin trả `CurrentUser` cho Program). Lưu ý: Form có constructor có tham số thì Visual Studio Designer khó mở hơn, nên các Form con (sản phẩm, khách hàng) giữ constructor mặc định.
 
-## Ảnh chụp màn hình cần nộp
-Form đăng nhập; thông báo đăng nhập sai/bỏ trống; FrmMain hiển thị StatusStrip; FrmProduct và FrmCustomer mở trong FrmMain; hộp thoại xác nhận xóa/thoát; FrmAbout.
