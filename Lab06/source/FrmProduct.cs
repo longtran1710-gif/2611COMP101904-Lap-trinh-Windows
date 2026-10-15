@@ -14,37 +14,28 @@ public partial class FrmProduct : Form
 {
     private static readonly CultureInfo Vi = new CultureInfo("vi-VN");
 
-    // Danh sách gốc (toàn bộ sản phẩm) và nguồn dữ liệu đang hiển thị trên DataGridView
     private readonly List<Product> allProducts = new List<Product>();
     private readonly BindingSource productSource = new BindingSource();
-
     private string selectedImagePath = string.Empty;
     private string currentKeyword = string.Empty;
     private bool isLoadingGrid;
     private bool sortGiaAscending = true;
     private bool sortSoLuongAscending = true;
-
     public FrmProduct()
     {
         InitializeComponent();
     }
-
-    // ===================== LOAD FORM =====================
-
     private void FrmProduct_Load(object? sender, EventArgs e)
     {
         cboLoaiSP.Items.AddRange(new object[] { "Điện tử", "Văn phòng", "Gia dụng", "Thời trang" });
         cboLoaiSP.SelectedIndex = 0;
-
         ConfigureGrid();
         LoadSampleData();
-
         dgvProducts.DataSource = productSource;
         RefreshGrid();
         ClearInput();
         UpdateStatus("Sẵn sàng");
     }
-
     private void ConfigureGrid()
     {
         dgvProducts.AutoGenerateColumns = false;
@@ -71,7 +62,6 @@ public partial class FrmProduct : Form
             Format = "dd/MM/yyyy",
             Alignment = DataGridViewContentAlignment.MiddleCenter
         };
-
         dgvProducts.Columns.Clear();
         dgvProducts.Columns.Add(new DataGridViewTextBoxColumn
         {
@@ -110,7 +100,6 @@ public partial class FrmProduct : Form
             FillWeight = 90, DefaultCellStyle = rightMoney
         });
     }
-
     private void LoadSampleData()
     {
         allProducts.Add(new Product
@@ -134,10 +123,6 @@ public partial class FrmProduct : Form
             DonGia = 120000, SoLuong = 0, NgayNhap = DateTime.Today.AddDays(-30), ConKinhDoanh = false
         });
     }
-
-    // ===================== HIỂN THỊ DỮ LIỆU =====================
-
-    /// <summary>Đổ lại dữ liệu lên DataGridView theo từ khóa tìm kiếm hiện tại.</summary>
     private void RefreshGrid()
     {
         isLoadingGrid = true;
@@ -150,7 +135,6 @@ public partial class FrmProduct : Form
                     p.MaSP.Contains(currentKeyword, StringComparison.OrdinalIgnoreCase) ||
                     p.TenSP.Contains(currentKeyword, StringComparison.OrdinalIgnoreCase));
             }
-
             productSource.DataSource = new BindingList<Product>(data.ToList());
             dgvProducts.ClearSelection();
         }
@@ -159,7 +143,6 @@ public partial class FrmProduct : Form
             isLoadingGrid = false;
         }
     }
-
     private void SelectProduct(Product product)
     {
         foreach (DataGridViewRow row in dgvProducts.Rows)
@@ -173,7 +156,6 @@ public partial class FrmProduct : Form
             }
         }
     }
-
     private Product? GetSelectedProduct()
     {
         if (dgvProducts.SelectedRows.Count == 0 ||
@@ -183,10 +165,8 @@ public partial class FrmProduct : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             return null;
         }
-
         return product;
     }
-
     private void dgvProducts_SelectionChanged(object? sender, EventArgs e)
     {
         if (isLoadingGrid || dgvProducts.SelectedRows.Count == 0) return;
@@ -196,10 +176,8 @@ public partial class FrmProduct : Form
             LoadProductToForm(product);
         }
     }
-
     private void dgvProducts_CellMouseDown(object? sender, DataGridViewCellMouseEventArgs e)
     {
-        // Nhấn chuột phải: chọn đúng dòng đang trỏ tới trước khi hiện ContextMenuStrip
         if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
         {
             dgvProducts.ClearSelection();
@@ -207,12 +185,10 @@ public partial class FrmProduct : Form
             dgvProducts.CurrentCell = dgvProducts.Rows[e.RowIndex].Cells[0];
         }
     }
-
     private void dgvProducts_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0) cmsChiTiet_Click(sender, e);
     }
-
     private void dgvProducts_KeyDown(object? sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Delete)
@@ -221,9 +197,6 @@ public partial class FrmProduct : Form
             e.Handled = true;
         }
     }
-
-    // ===================== HÀM HỖ TRỢ =====================
-
     private void LoadProductToForm(Product p)
     {
         errorProvider1.Clear();
@@ -234,11 +207,9 @@ public partial class FrmProduct : Form
         numSoLuong.Value = Math.Min(Math.Max(p.SoLuong, numSoLuong.Minimum), numSoLuong.Maximum);
         dtpNgayNhap.Value = p.NgayNhap < dtpNgayNhap.MinDate ? dtpNgayNhap.MinDate : p.NgayNhap;
         chkConKinhDoanh.Checked = p.ConKinhDoanh;
-
         selectedImagePath = p.DuongDanAnh;
         ShowImage(selectedImagePath);
     }
-
     private void FillProductFromForm(Product p)
     {
         p.MaSP = txtMaSP.Text.Trim();
@@ -250,7 +221,6 @@ public partial class FrmProduct : Form
         p.ConKinhDoanh = chkConKinhDoanh.Checked;
         p.DuongDanAnh = selectedImagePath;
     }
-
     private void ClearInput()
     {
         errorProvider1.Clear();
@@ -266,11 +236,9 @@ public partial class FrmProduct : Form
         dgvProducts.ClearSelection();
         txtMaSP.Focus();
     }
-
     private void UpdateStatus(string message)
     {
         lblStatus.Text = message;
-
         string count = $"Số sản phẩm: {allProducts.Count}";
         if (currentKeyword.Length > 0)
         {
@@ -281,20 +249,17 @@ public partial class FrmProduct : Form
         decimal total = allProducts.Sum(p => p.ThanhTien);
         lblTongTon.Text = string.Format(Vi, "Tổng giá trị tồn kho: {0:N0} đ", total);
     }
-
     private bool ValidateInput(Product? editing = null)
     {
         errorProvider1.Clear();
         bool isValid = true;
         Control? firstError = null;
-
         void SetError(Control control, string message)
         {
             errorProvider1.SetError(control, message);
             firstError ??= control;
             isValid = false;
         }
-
         string ma = txtMaSP.Text.Trim();
         if (ma.Length == 0)
         {
@@ -305,32 +270,26 @@ public partial class FrmProduct : Form
         {
             SetError(txtMaSP, "Mã sản phẩm đã tồn tại");
         }
-
         if (string.IsNullOrWhiteSpace(txtTenSP.Text))
         {
             SetError(txtTenSP, "Tên sản phẩm không được rỗng");
         }
-
         if (cboLoaiSP.SelectedIndex < 0)
         {
             SetError(cboLoaiSP, "Vui lòng chọn loại sản phẩm");
         }
-
         if (numDonGia.Value <= 0)
         {
             SetError(numDonGia, "Đơn giá phải lớn hơn 0");
         }
-
         if (numSoLuong.Value < 0)
         {
             SetError(numSoLuong, "Số lượng phải lớn hơn hoặc bằng 0");
         }
-
         if (dtpNgayNhap.Value.Date > DateTime.Today)
         {
             SetError(dtpNgayNhap, "Ngày nhập không được lớn hơn ngày hiện tại");
         }
-
         if (!isValid)
         {
             MessageBox.Show("Dữ liệu chưa hợp lệ, vui lòng kiểm tra các ô có biểu tượng lỗi.",
@@ -340,13 +299,11 @@ public partial class FrmProduct : Form
 
         return isValid;
     }
-
     private void DisposePictureImage()
     {
         picSanPham.Image?.Dispose();
         picSanPham.Image = null;
     }
-
     private void ShowImage(string path)
     {
         DisposePictureImage();
@@ -354,7 +311,6 @@ public partial class FrmProduct : Form
 
         try
         {
-            // Đọc qua stream rồi sao chép để không bị khóa file ảnh
             using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             using var image = Image.FromStream(stream);
             picSanPham.Image = new Bitmap(image);
@@ -365,43 +321,32 @@ public partial class FrmProduct : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
-
-    // ===================== CRUD =====================
-
     private void btnThem_Click(object? sender, EventArgs e)
     {
         if (!ValidateInput()) return;
-
         var product = new Product();
         FillProductFromForm(product);
         allProducts.Add(product);
-
-        // Bỏ bộ lọc để sản phẩm mới luôn nhìn thấy được
         currentKeyword = string.Empty;
         tstTimKiem.Clear();
-
         RefreshGrid();
         ClearInput();
         UpdateStatus($"Đã thêm sản phẩm {product.MaSP}");
     }
-
     private void btnSua_Click(object? sender, EventArgs e)
     {
         Product? product = GetSelectedProduct();
         if (product == null) return;
         if (!ValidateInput(product)) return;
-
         FillProductFromForm(product);
         RefreshGrid();
         SelectProduct(product);
         UpdateStatus($"Đã cập nhật sản phẩm {product.MaSP}");
     }
-
     private void btnXoa_Click(object? sender, EventArgs e)
     {
         Product? product = GetSelectedProduct();
         if (product == null) return;
-
         DialogResult result = MessageBox.Show(
             $"Bạn có chắc muốn xóa sản phẩm \"{product.TenSP}\" ({product.MaSP})?",
             "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -413,7 +358,6 @@ public partial class FrmProduct : Form
         ClearInput();
         UpdateStatus($"Đã xóa sản phẩm {product.MaSP}");
     }
-
     private void TimKiem_Click(object? sender, EventArgs e)
     {
         currentKeyword = tstTimKiem.Text.Trim();
@@ -421,7 +365,6 @@ public partial class FrmProduct : Form
         ClearInput();
         UpdateStatus($"Tìm thấy {productSource.Count} sản phẩm");
     }
-
     private void tstTimKiem_KeyDown(object? sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
@@ -430,12 +373,10 @@ public partial class FrmProduct : Form
             tsbTimKiem.PerformClick();
         }
     }
-
     private void mnuTimKiem_Click(object? sender, EventArgs e)
     {
         tstTimKiem.Focus();
     }
-
     private void LamMoi_Click(object? sender, EventArgs e)
     {
         currentKeyword = string.Empty;
@@ -444,9 +385,6 @@ public partial class FrmProduct : Form
         ClearInput();
         UpdateStatus("Đã làm mới dữ liệu");
     }
-
-    // ===================== ẢNH =====================
-
     private void btnChonAnh_Click(object? sender, EventArgs e)
     {
         using var dialog = new OpenFileDialog();
@@ -460,24 +398,18 @@ public partial class FrmProduct : Form
             UpdateStatus("Đã chọn ảnh sản phẩm (nhấn Sửa hoặc Thêm để lưu)");
         }
     }
-
-    // ===================== CONTEXT MENU =====================
-
     private void cmsSua_Click(object? sender, EventArgs e)
     {
         Product? product = GetSelectedProduct();
         if (product == null) return;
-
         LoadProductToForm(product);
         txtTenSP.Focus();
         UpdateStatus("Chỉnh sửa thông tin rồi nhấn nút Sửa để lưu");
     }
-
     private void cmsChiTiet_Click(object? sender, EventArgs e)
     {
         Product? product = GetSelectedProduct();
         if (product == null) return;
-
         string message =
             $"Mã SP: {product.MaSP}\n" +
             $"Tên: {product.TenSP}\n" +
@@ -491,18 +423,13 @@ public partial class FrmProduct : Form
 
         MessageBox.Show(message, "Chi tiết sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
-
-    // ===================== MENU =====================
-
     private void mnuXuatTxt_Click(object? sender, EventArgs e)
     {
         using var dialog = new SaveFileDialog();
         dialog.Title = "Xuất danh sách sản phẩm";
         dialog.Filter = "Text file|*.txt";
         dialog.FileName = "DanhSachSanPham.txt";
-
         if (dialog.ShowDialog() != DialogResult.OK) return;
-
         var lines = new List<string> { "MaSP\tTenSP\tLoaiSP\tDonGia\tSoLuong\tNgayNhap\tConKinhDoanh" };
         lines.AddRange(allProducts.Select(p =>
             $"{p.MaSP}\t{p.TenSP}\t{p.LoaiSP}\t{p.DonGia:0}\t{p.SoLuong}\t{p.NgayNhap:dd/MM/yyyy}\t{p.ConKinhDoanh}"));
@@ -517,12 +444,10 @@ public partial class FrmProduct : Form
             MessageBox.Show("Không thể ghi file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
     private void mnuThoat_Click(object? sender, EventArgs e)
     {
         Close();
     }
-
     private void mnuSapXepGia_Click(object? sender, EventArgs e)
     {
         List<Product> sorted = sortGiaAscending
@@ -531,7 +456,6 @@ public partial class FrmProduct : Form
         ApplySort(sorted, "đơn giá", sortGiaAscending);
         sortGiaAscending = !sortGiaAscending;
     }
-
     private void mnuSapXepSL_Click(object? sender, EventArgs e)
     {
         List<Product> sorted = sortSoLuongAscending
@@ -540,7 +464,6 @@ public partial class FrmProduct : Form
         ApplySort(sorted, "số lượng", sortSoLuongAscending);
         sortSoLuongAscending = !sortSoLuongAscending;
     }
-
     private void ApplySort(List<Product> sorted, string field, bool ascending)
     {
         allProducts.Clear();
@@ -549,7 +472,6 @@ public partial class FrmProduct : Form
         ClearInput();
         UpdateStatus($"Đã sắp xếp theo {field} ({(ascending ? "tăng dần" : "giảm dần")})");
     }
-
     private void mnuGioiThieu_Click(object? sender, EventArgs e)
     {
         MessageBox.Show("ProductManager - Lab COMP1019\nỨng dụng Windows Forms quản lý sản phẩm.",
