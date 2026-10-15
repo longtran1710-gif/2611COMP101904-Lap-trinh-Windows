@@ -20,8 +20,6 @@ partial class FrmProduct
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-
-        // ---- khởi tạo control ----
         menuStrip1 = new MenuStrip();
         mnuFile = new ToolStripMenuItem();
         mnuLamMoi = new ToolStripMenuItem();
@@ -38,7 +36,6 @@ partial class FrmProduct
         mnuSapXepSL = new ToolStripMenuItem();
         mnuTroGiup = new ToolStripMenuItem();
         mnuGioiThieu = new ToolStripMenuItem();
-
         toolStrip1 = new ToolStrip();
         tsbThem = new ToolStripButton();
         tsbSua = new ToolStripButton();
@@ -48,12 +45,10 @@ partial class FrmProduct
         tslTimKiem = new ToolStripLabel();
         tstTimKiem = new ToolStripTextBox();
         tsbTimKiem = new ToolStripButton();
-
         statusStrip1 = new StatusStrip();
         lblStatus = new ToolStripStatusLabel();
         lblCount = new ToolStripStatusLabel();
         lblTongTon = new ToolStripStatusLabel();
-
         grpThongTin = new GroupBox();
         lblMa = new Label();
         lblTen = new Label();
@@ -74,14 +69,12 @@ partial class FrmProduct
         btnLamMoi = new Button();
         picSanPham = new PictureBox();
         btnChonAnh = new Button();
-
         dgvProducts = new DataGridView();
         cmsProducts = new ContextMenuStrip(components);
         cmsSua = new ToolStripMenuItem();
         cmsXoa = new ToolStripMenuItem();
         cmsChiTiet = new ToolStripMenuItem();
         errorProvider1 = new ErrorProvider(components);
-
         menuStrip1.SuspendLayout();
         toolStrip1.SuspendLayout();
         statusStrip1.SuspendLayout();
@@ -94,118 +87,92 @@ partial class FrmProduct
         cmsProducts.SuspendLayout();
         SuspendLayout();
 
-        // ---- menuStrip1 ----
         menuStrip1.Items.AddRange(new ToolStripItem[] { mnuFile, mnuQuanLy, mnuTroGiup });
         menuStrip1.Name = "menuStrip1";
-
         mnuFile.Name = "mnuFile";
         mnuFile.Text = "&File";
         mnuFile.DropDownItems.AddRange(new ToolStripItem[] { mnuLamMoi, mnuXuatTxt, mnuSep1, mnuThoat });
-
         mnuLamMoi.Name = "mnuLamMoi";
         mnuLamMoi.Text = "Làm mới";
         mnuLamMoi.ShortcutKeys = Keys.F5;
         mnuLamMoi.Click += LamMoi_Click;
-
         mnuXuatTxt.Name = "mnuXuatTxt";
         mnuXuatTxt.Text = "Xuất danh sách ra file .txt...";
         mnuXuatTxt.ShortcutKeys = Keys.Control | Keys.S;
         mnuXuatTxt.Click += mnuXuatTxt_Click;
-
         mnuSep1.Name = "mnuSep1";
-
         mnuThoat.Name = "mnuThoat";
         mnuThoat.Text = "Thoát";
         mnuThoat.ShortcutKeys = Keys.Control | Keys.Q;
         mnuThoat.Click += mnuThoat_Click;
-
         mnuQuanLy.Name = "mnuQuanLy";
         mnuQuanLy.Text = "&Quản lý";
         mnuQuanLy.DropDownItems.AddRange(new ToolStripItem[]
         {
             mnuThem, mnuSua, mnuXoa, mnuTimKiem, mnuSep2, mnuSapXepGia, mnuSapXepSL
         });
-
         mnuThem.Name = "mnuThem";
         mnuThem.Text = "Thêm sản phẩm";
         mnuThem.ShortcutKeys = Keys.Control | Keys.N;
         mnuThem.Click += btnThem_Click;
-
         mnuSua.Name = "mnuSua";
         mnuSua.Text = "Sửa sản phẩm";
         mnuSua.ShortcutKeys = Keys.Control | Keys.E;
         mnuSua.Click += btnSua_Click;
-
         mnuXoa.Name = "mnuXoa";
         mnuXoa.Text = "Xóa sản phẩm";
         mnuXoa.ShortcutKeys = Keys.Control | Keys.D;
         mnuXoa.Click += btnXoa_Click;
-
         mnuTimKiem.Name = "mnuTimKiem";
         mnuTimKiem.Text = "Tìm kiếm";
         mnuTimKiem.ShortcutKeys = Keys.Control | Keys.F;
         mnuTimKiem.Click += mnuTimKiem_Click;
-
         mnuSep2.Name = "mnuSep2";
-
         mnuSapXepGia.Name = "mnuSapXepGia";
         mnuSapXepGia.Text = "Sắp xếp theo đơn giá";
         mnuSapXepGia.Click += mnuSapXepGia_Click;
-
         mnuSapXepSL.Name = "mnuSapXepSL";
         mnuSapXepSL.Text = "Sắp xếp theo số lượng";
         mnuSapXepSL.Click += mnuSapXepSL_Click;
-
         mnuTroGiup.Name = "mnuTroGiup";
         mnuTroGiup.Text = "&Trợ giúp";
         mnuTroGiup.DropDownItems.AddRange(new ToolStripItem[] { mnuGioiThieu });
-
         mnuGioiThieu.Name = "mnuGioiThieu";
         mnuGioiThieu.Text = "Giới thiệu";
         mnuGioiThieu.Click += mnuGioiThieu_Click;
 
-        // ---- toolStrip1 ----
         toolStrip1.Items.AddRange(new ToolStripItem[]
         {
             tsbThem, tsbSua, tsbXoa, tsbLamMoi, tssSep, tslTimKiem, tstTimKiem, tsbTimKiem
         });
         toolStrip1.Name = "toolStrip1";
-
         tsbThem.Name = "tsbThem";
         tsbThem.Text = "Thêm";
         tsbThem.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbThem.Click += btnThem_Click;
-
         tsbSua.Name = "tsbSua";
         tsbSua.Text = "Sửa";
         tsbSua.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbSua.Click += btnSua_Click;
-
         tsbXoa.Name = "tsbXoa";
         tsbXoa.Text = "Xóa";
         tsbXoa.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbXoa.Click += btnXoa_Click;
-
         tsbLamMoi.Name = "tsbLamMoi";
         tsbLamMoi.Text = "Làm mới";
         tsbLamMoi.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbLamMoi.Click += LamMoi_Click;
-
         tssSep.Name = "tssSep";
-
         tslTimKiem.Name = "tslTimKiem";
         tslTimKiem.Text = "Mã hoặc tên:";
-
         tstTimKiem.Name = "tstTimKiem";
         tstTimKiem.Size = new Size(200, 25);
         tstTimKiem.KeyDown += tstTimKiem_KeyDown;
-
         tsbTimKiem.Name = "tsbTimKiem";
         tsbTimKiem.Text = "Tìm kiếm";
         tsbTimKiem.DisplayStyle = ToolStripItemDisplayStyle.Text;
         tsbTimKiem.Click += TimKiem_Click;
 
-        // ---- statusStrip1 ----
         statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus, lblCount, lblTongTon });
         statusStrip1.Name = "statusStrip1";
 
@@ -213,16 +180,13 @@ partial class FrmProduct
         lblStatus.Text = "Sẵn sàng";
         lblStatus.Spring = true;
         lblStatus.TextAlign = ContentAlignment.MiddleLeft;
-
         lblCount.Name = "lblCount";
         lblCount.Text = "Số sản phẩm: 0";
         lblCount.BorderSides = ToolStripStatusLabelBorderSides.Left;
-
         lblTongTon.Name = "lblTongTon";
         lblTongTon.Text = "Tổng giá trị tồn kho: 0 đ";
         lblTongTon.BorderSides = ToolStripStatusLabelBorderSides.Left;
-
-        // ---- grpThongTin ----
+        
         grpThongTin.Name = "grpThongTin";
         grpThongTin.Text = "Thông tin sản phẩm";
         grpThongTin.Dock = DockStyle.Top;
@@ -233,40 +197,32 @@ partial class FrmProduct
             txtMaSP, txtTenSP, cboLoaiSP, numDonGia, numSoLuong, dtpNgayNhap,
             chkConKinhDoanh, btnThem, btnSua, btnXoa, btnLamMoi, picSanPham, btnChonAnh
         });
-
         lblMa.Name = "lblMa";
         lblMa.Text = "Mã SP:";
         lblMa.Location = new Point(15, 33);
         lblMa.AutoSize = true;
-
         txtMaSP.Name = "txtMaSP";
         txtMaSP.Location = new Point(110, 30);
         txtMaSP.Size = new Size(210, 23);
-
         lblTen.Name = "lblTen";
         lblTen.Text = "Tên SP:";
         lblTen.Location = new Point(15, 68);
         lblTen.AutoSize = true;
-
         txtTenSP.Name = "txtTenSP";
         txtTenSP.Location = new Point(110, 65);
         txtTenSP.Size = new Size(210, 23);
-
         lblLoai.Name = "lblLoai";
         lblLoai.Text = "Loại SP:";
         lblLoai.Location = new Point(15, 103);
         lblLoai.AutoSize = true;
-
         cboLoaiSP.Name = "cboLoaiSP";
         cboLoaiSP.DropDownStyle = ComboBoxStyle.DropDownList;
         cboLoaiSP.Location = new Point(110, 100);
         cboLoaiSP.Size = new Size(210, 23);
-
         lblDonGia.Name = "lblDonGia";
         lblDonGia.Text = "Đơn giá:";
         lblDonGia.Location = new Point(15, 138);
         lblDonGia.AutoSize = true;
-
         numDonGia.Name = "numDonGia";
         numDonGia.Location = new Point(110, 135);
         numDonGia.Size = new Size(210, 23);
@@ -275,71 +231,59 @@ partial class FrmProduct
         numDonGia.Increment = 1000;
         numDonGia.ThousandsSeparator = true;
         numDonGia.Value = 1;
-
         lblSoLuong.Name = "lblSoLuong";
         lblSoLuong.Text = "Số lượng:";
         lblSoLuong.Location = new Point(15, 173);
         lblSoLuong.AutoSize = true;
-
         numSoLuong.Name = "numSoLuong";
         numSoLuong.Location = new Point(110, 170);
         numSoLuong.Size = new Size(210, 23);
         numSoLuong.Minimum = 0;
         numSoLuong.Maximum = 1000000;
-
         lblNgayNhap.Name = "lblNgayNhap";
         lblNgayNhap.Text = "Ngày nhập:";
         lblNgayNhap.Location = new Point(345, 33);
         lblNgayNhap.AutoSize = true;
-
         dtpNgayNhap.Name = "dtpNgayNhap";
         dtpNgayNhap.Format = DateTimePickerFormat.Short;
         dtpNgayNhap.Location = new Point(430, 30);
         dtpNgayNhap.Size = new Size(150, 23);
-
         chkConKinhDoanh.Name = "chkConKinhDoanh";
         chkConKinhDoanh.Text = "Còn kinh doanh";
         chkConKinhDoanh.Checked = true;
         chkConKinhDoanh.AutoSize = true;
         chkConKinhDoanh.Location = new Point(345, 68);
-
         btnThem.Name = "btnThem";
         btnThem.Text = "Thêm";
         btnThem.Location = new Point(345, 110);
         btnThem.Size = new Size(110, 32);
         btnThem.Click += btnThem_Click;
-
         btnSua.Name = "btnSua";
         btnSua.Text = "Sửa";
         btnSua.Location = new Point(470, 110);
         btnSua.Size = new Size(110, 32);
         btnSua.Click += btnSua_Click;
-
         btnXoa.Name = "btnXoa";
         btnXoa.Text = "Xóa";
         btnXoa.Location = new Point(345, 155);
         btnXoa.Size = new Size(110, 32);
         btnXoa.Click += btnXoa_Click;
-
         btnLamMoi.Name = "btnLamMoi";
         btnLamMoi.Text = "Làm mới";
         btnLamMoi.Location = new Point(470, 155);
         btnLamMoi.Size = new Size(110, 32);
         btnLamMoi.Click += LamMoi_Click;
-
         picSanPham.Name = "picSanPham";
         picSanPham.BorderStyle = BorderStyle.FixedSingle;
         picSanPham.SizeMode = PictureBoxSizeMode.Zoom;
         picSanPham.Location = new Point(620, 25);
         picSanPham.Size = new Size(190, 160);
-
         btnChonAnh.Name = "btnChonAnh";
         btnChonAnh.Text = "Chọn ảnh...";
         btnChonAnh.Location = new Point(620, 192);
         btnChonAnh.Size = new Size(190, 30);
         btnChonAnh.Click += btnChonAnh_Click;
 
-        // ---- dgvProducts ----
         dgvProducts.Name = "dgvProducts";
         dgvProducts.Dock = DockStyle.Fill;
         dgvProducts.BackgroundColor = SystemColors.Window;
@@ -349,27 +293,21 @@ partial class FrmProduct
         dgvProducts.CellDoubleClick += dgvProducts_CellDoubleClick;
         dgvProducts.KeyDown += dgvProducts_KeyDown;
 
-        // ---- cmsProducts ----
         cmsProducts.Name = "cmsProducts";
         cmsProducts.Items.AddRange(new ToolStripItem[] { cmsSua, cmsXoa, cmsChiTiet });
-
         cmsSua.Name = "cmsSua";
         cmsSua.Text = "Sửa";
         cmsSua.Click += cmsSua_Click;
-
         cmsXoa.Name = "cmsXoa";
         cmsXoa.Text = "Xóa";
         cmsXoa.Click += btnXoa_Click;
-
         cmsChiTiet.Name = "cmsChiTiet";
         cmsChiTiet.Text = "Xem chi tiết";
         cmsChiTiet.Click += cmsChiTiet_Click;
 
-        // ---- errorProvider1 ----
         errorProvider1.ContainerControl = this;
         errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 
-        // ---- FrmProduct ----
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(900, 640);
@@ -378,7 +316,7 @@ partial class FrmProduct
         Name = "FrmProduct";
         Text = "Quản lý sản phẩm";
         MainMenuStrip = menuStrip1;
-        // Thứ tự Add quan trọng với Dock: control Fill thêm trước, các control Top thêm sau
+
         Controls.Add(dgvProducts);
         Controls.Add(grpThongTin);
         Controls.Add(statusStrip1);
@@ -403,7 +341,6 @@ partial class FrmProduct
         ResumeLayout(false);
         PerformLayout();
     }
-
     private MenuStrip menuStrip1 = null!;
     private ToolStripMenuItem mnuFile = null!;
     private ToolStripMenuItem mnuLamMoi = null!;
@@ -420,7 +357,6 @@ partial class FrmProduct
     private ToolStripMenuItem mnuSapXepSL = null!;
     private ToolStripMenuItem mnuTroGiup = null!;
     private ToolStripMenuItem mnuGioiThieu = null!;
-
     private ToolStrip toolStrip1 = null!;
     private ToolStripButton tsbThem = null!;
     private ToolStripButton tsbSua = null!;
@@ -430,12 +366,10 @@ partial class FrmProduct
     private ToolStripLabel tslTimKiem = null!;
     private ToolStripTextBox tstTimKiem = null!;
     private ToolStripButton tsbTimKiem = null!;
-
     private StatusStrip statusStrip1 = null!;
     private ToolStripStatusLabel lblStatus = null!;
     private ToolStripStatusLabel lblCount = null!;
     private ToolStripStatusLabel lblTongTon = null!;
-
     private GroupBox grpThongTin = null!;
     private Label lblMa = null!;
     private Label lblTen = null!;
@@ -456,7 +390,6 @@ partial class FrmProduct
     private Button btnLamMoi = null!;
     private PictureBox picSanPham = null!;
     private Button btnChonAnh = null!;
-
     private DataGridView dgvProducts = null!;
     private ContextMenuStrip cmsProducts = null!;
     private ToolStripMenuItem cmsSua = null!;
