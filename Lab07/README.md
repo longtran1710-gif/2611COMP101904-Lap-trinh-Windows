@@ -1,12 +1,7 @@
-# ShopManagerMini - Quản lý cửa hàng mini (COMP1019 - Buổi 7)
+# ShopManagerMini - Quản lý cửa hàng mini 
 
 Ứng dụng WinForms nhiều Form: đăng nhập, Form chính MDI, quản lý sản phẩm, quản lý khách hàng, giới thiệu.
-Dữ liệu lưu trong bộ nhớ (`DataStore`), chưa kết nối SQL Server.
-
-## Cách chạy
-1. Mở `ShopManagerMini.csproj` bằng Visual Studio 2022 (workload ".NET desktop development"), nhấn F5.
-2. Project dùng `net8.0-windows`; nếu máy dùng .NET khác thì sửa `TargetFramework` trong `.csproj`.
-3. Trước khi nộp: sửa họ tên và lớp trong `Forms/FrmAbout.cs` (hằng `TenSinhVien`, `Lop`).
+Dữ liệu lưu trong bộ nhớ (`DataStore`).
 
 ## Tài khoản mẫu
 | Username | Password | Họ tên | Vai trò |
