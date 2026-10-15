@@ -19,8 +19,5 @@
 - Phím tắt: Ctrl+N (Thêm), Ctrl+E (Sửa), Ctrl+D (Xóa), Ctrl+F (Tìm kiếm), F5 (Làm mới), Ctrl+S (Xuất .txt), Ctrl+Q (Thoát); phím Delete trên lưới để xóa; Enter trong ô tìm kiếm; double-click dòng để xem chi tiết.
 - Mở rộng: sắp xếp theo đơn giá / số lượng (menu Quản lý), xuất danh sách ra `.txt` (menu File), tổng giá trị tồn kho trên StatusStrip.
 
-## Cách sửa một sản phẩm
-Chọn dòng trên lưới -> dữ liệu tự đưa lên form -> chỉnh sửa -> bấm **Sửa** để lưu.
-
 ## Tên control chính
 `txtMaSP`, `txtTenSP`, `cboLoaiSP`, `numDonGia`, `numSoLuong`, `dtpNgayNhap`, `chkConKinhDoanh`, `dgvProducts`, `lblStatus`, `picSanPham`, `errorProvider1`.
