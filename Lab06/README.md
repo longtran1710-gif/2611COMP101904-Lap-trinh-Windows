@@ -1,12 +1,6 @@
-# ProductManager - Quản lý sản phẩm (COMP1019 - Lab 05/Buổi 6)
+# ProductManager - Quản lý sản phẩm
 
 Ứng dụng Windows Forms quản lý danh sách sản phẩm, dữ liệu lưu trong bộ nhớ (không dùng SQL Server).
-
-## Cách chạy
-1. Mở file `ProductManager.csproj` bằng Visual Studio 2022 (cần workload ".NET desktop development").
-2. Nhấn F5 để chạy.
-3. Dự án dùng `net8.0-windows`. Nếu máy dùng .NET khác, sửa `TargetFramework` trong `.csproj`
-   (ví dụ `net6.0-windows`, `net9.0-windows`).
 
 ## Cấu trúc
 - `Product.cs` - class lưu dữ liệu sản phẩm (có thuộc tính tính toán `ThanhTien`).
