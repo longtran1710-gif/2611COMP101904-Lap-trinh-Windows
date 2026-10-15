@@ -1,0 +1,466 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace ProductManager;
+
+partial class FrmProduct
+{
+    private System.ComponentModel.IContainer components = null!;
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && components != null)
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    private void InitializeComponent()
+    {
+        components = new System.ComponentModel.Container();
+
+        // ---- khởi tạo control ----
+        menuStrip1 = new MenuStrip();
+        mnuFile = new ToolStripMenuItem();
+        mnuLamMoi = new ToolStripMenuItem();
+        mnuXuatTxt = new ToolStripMenuItem();
+        mnuSep1 = new ToolStripSeparator();
+        mnuThoat = new ToolStripMenuItem();
+        mnuQuanLy = new ToolStripMenuItem();
+        mnuThem = new ToolStripMenuItem();
+        mnuSua = new ToolStripMenuItem();
+        mnuXoa = new ToolStripMenuItem();
+        mnuTimKiem = new ToolStripMenuItem();
+        mnuSep2 = new ToolStripSeparator();
+        mnuSapXepGia = new ToolStripMenuItem();
+        mnuSapXepSL = new ToolStripMenuItem();
+        mnuTroGiup = new ToolStripMenuItem();
+        mnuGioiThieu = new ToolStripMenuItem();
+
+        toolStrip1 = new ToolStrip();
+        tsbThem = new ToolStripButton();
+        tsbSua = new ToolStripButton();
+        tsbXoa = new ToolStripButton();
+        tsbLamMoi = new ToolStripButton();
+        tssSep = new ToolStripSeparator();
+        tslTimKiem = new ToolStripLabel();
+        tstTimKiem = new ToolStripTextBox();
+        tsbTimKiem = new ToolStripButton();
+
+        statusStrip1 = new StatusStrip();
+        lblStatus = new ToolStripStatusLabel();
+        lblCount = new ToolStripStatusLabel();
+        lblTongTon = new ToolStripStatusLabel();
+
+        grpThongTin = new GroupBox();
+        lblMa = new Label();
+        lblTen = new Label();
+        lblLoai = new Label();
+        lblDonGia = new Label();
+        lblSoLuong = new Label();
+        lblNgayNhap = new Label();
+        txtMaSP = new TextBox();
+        txtTenSP = new TextBox();
+        cboLoaiSP = new ComboBox();
+        numDonGia = new NumericUpDown();
+        numSoLuong = new NumericUpDown();
+        dtpNgayNhap = new DateTimePicker();
+        chkConKinhDoanh = new CheckBox();
+        btnThem = new Button();
+        btnSua = new Button();
+        btnXoa = new Button();
+        btnLamMoi = new Button();
+        picSanPham = new PictureBox();
+        btnChonAnh = new Button();
+
+        dgvProducts = new DataGridView();
+        cmsProducts = new ContextMenuStrip(components);
+        cmsSua = new ToolStripMenuItem();
+        cmsXoa = new ToolStripMenuItem();
+        cmsChiTiet = new ToolStripMenuItem();
+        errorProvider1 = new ErrorProvider(components);
+
+        menuStrip1.SuspendLayout();
+        toolStrip1.SuspendLayout();
+        statusStrip1.SuspendLayout();
+        grpThongTin.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)numDonGia).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numSoLuong).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)picSanPham).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+        cmsProducts.SuspendLayout();
+        SuspendLayout();
+
+        // ---- menuStrip1 ----
+        menuStrip1.Items.AddRange(new ToolStripItem[] { mnuFile, mnuQuanLy, mnuTroGiup });
+        menuStrip1.Name = "menuStrip1";
+
+        mnuFile.Name = "mnuFile";
+        mnuFile.Text = "&File";
+        mnuFile.DropDownItems.AddRange(new ToolStripItem[] { mnuLamMoi, mnuXuatTxt, mnuSep1, mnuThoat });
+
+        mnuLamMoi.Name = "mnuLamMoi";
+        mnuLamMoi.Text = "Làm mới";
+        mnuLamMoi.ShortcutKeys = Keys.F5;
+        mnuLamMoi.Click += LamMoi_Click;
+
+        mnuXuatTxt.Name = "mnuXuatTxt";
+        mnuXuatTxt.Text = "Xuất danh sách ra file .txt...";
+        mnuXuatTxt.ShortcutKeys = Keys.Control | Keys.S;
+        mnuXuatTxt.Click += mnuXuatTxt_Click;
+
+        mnuSep1.Name = "mnuSep1";
+
+        mnuThoat.Name = "mnuThoat";
+        mnuThoat.Text = "Thoát";
+        mnuThoat.ShortcutKeys = Keys.Control | Keys.Q;
+        mnuThoat.Click += mnuThoat_Click;
+
+        mnuQuanLy.Name = "mnuQuanLy";
+        mnuQuanLy.Text = "&Quản lý";
+        mnuQuanLy.DropDownItems.AddRange(new ToolStripItem[]
+        {
+            mnuThem, mnuSua, mnuXoa, mnuTimKiem, mnuSep2, mnuSapXepGia, mnuSapXepSL
+        });
+
+        mnuThem.Name = "mnuThem";
+        mnuThem.Text = "Thêm sản phẩm";
+        mnuThem.ShortcutKeys = Keys.Control | Keys.N;
+        mnuThem.Click += btnThem_Click;
+
+        mnuSua.Name = "mnuSua";
+        mnuSua.Text = "Sửa sản phẩm";
+        mnuSua.ShortcutKeys = Keys.Control | Keys.E;
+        mnuSua.Click += btnSua_Click;
+
+        mnuXoa.Name = "mnuXoa";
+        mnuXoa.Text = "Xóa sản phẩm";
+        mnuXoa.ShortcutKeys = Keys.Control | Keys.D;
+        mnuXoa.Click += btnXoa_Click;
+
+        mnuTimKiem.Name = "mnuTimKiem";
+        mnuTimKiem.Text = "Tìm kiếm";
+        mnuTimKiem.ShortcutKeys = Keys.Control | Keys.F;
+        mnuTimKiem.Click += mnuTimKiem_Click;
+
+        mnuSep2.Name = "mnuSep2";
+
+        mnuSapXepGia.Name = "mnuSapXepGia";
+        mnuSapXepGia.Text = "Sắp xếp theo đơn giá";
+        mnuSapXepGia.Click += mnuSapXepGia_Click;
+
+        mnuSapXepSL.Name = "mnuSapXepSL";
+        mnuSapXepSL.Text = "Sắp xếp theo số lượng";
+        mnuSapXepSL.Click += mnuSapXepSL_Click;
+
+        mnuTroGiup.Name = "mnuTroGiup";
+        mnuTroGiup.Text = "&Trợ giúp";
+        mnuTroGiup.DropDownItems.AddRange(new ToolStripItem[] { mnuGioiThieu });
+
+        mnuGioiThieu.Name = "mnuGioiThieu";
+        mnuGioiThieu.Text = "Giới thiệu";
+        mnuGioiThieu.Click += mnuGioiThieu_Click;
+
+        // ---- toolStrip1 ----
+        toolStrip1.Items.AddRange(new ToolStripItem[]
+        {
+            tsbThem, tsbSua, tsbXoa, tsbLamMoi, tssSep, tslTimKiem, tstTimKiem, tsbTimKiem
+        });
+        toolStrip1.Name = "toolStrip1";
+
+        tsbThem.Name = "tsbThem";
+        tsbThem.Text = "Thêm";
+        tsbThem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+        tsbThem.Click += btnThem_Click;
+
+        tsbSua.Name = "tsbSua";
+        tsbSua.Text = "Sửa";
+        tsbSua.DisplayStyle = ToolStripItemDisplayStyle.Text;
+        tsbSua.Click += btnSua_Click;
+
+        tsbXoa.Name = "tsbXoa";
+        tsbXoa.Text = "Xóa";
+        tsbXoa.DisplayStyle = ToolStripItemDisplayStyle.Text;
+        tsbXoa.Click += btnXoa_Click;
+
+        tsbLamMoi.Name = "tsbLamMoi";
+        tsbLamMoi.Text = "Làm mới";
+        tsbLamMoi.DisplayStyle = ToolStripItemDisplayStyle.Text;
+        tsbLamMoi.Click += LamMoi_Click;
+
+        tssSep.Name = "tssSep";
+
+        tslTimKiem.Name = "tslTimKiem";
+        tslTimKiem.Text = "Mã hoặc tên:";
+
+        tstTimKiem.Name = "tstTimKiem";
+        tstTimKiem.Size = new Size(200, 25);
+        tstTimKiem.KeyDown += tstTimKiem_KeyDown;
+
+        tsbTimKiem.Name = "tsbTimKiem";
+        tsbTimKiem.Text = "Tìm kiếm";
+        tsbTimKiem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+        tsbTimKiem.Click += TimKiem_Click;
+
+        // ---- statusStrip1 ----
+        statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus, lblCount, lblTongTon });
+        statusStrip1.Name = "statusStrip1";
+
+        lblStatus.Name = "lblStatus";
+        lblStatus.Text = "Sẵn sàng";
+        lblStatus.Spring = true;
+        lblStatus.TextAlign = ContentAlignment.MiddleLeft;
+
+        lblCount.Name = "lblCount";
+        lblCount.Text = "Số sản phẩm: 0";
+        lblCount.BorderSides = ToolStripStatusLabelBorderSides.Left;
+
+        lblTongTon.Name = "lblTongTon";
+        lblTongTon.Text = "Tổng giá trị tồn kho: 0 đ";
+        lblTongTon.BorderSides = ToolStripStatusLabelBorderSides.Left;
+
+        // ---- grpThongTin ----
+        grpThongTin.Name = "grpThongTin";
+        grpThongTin.Text = "Thông tin sản phẩm";
+        grpThongTin.Dock = DockStyle.Top;
+        grpThongTin.Height = 235;
+        grpThongTin.Controls.AddRange(new Control[]
+        {
+            lblMa, lblTen, lblLoai, lblDonGia, lblSoLuong, lblNgayNhap,
+            txtMaSP, txtTenSP, cboLoaiSP, numDonGia, numSoLuong, dtpNgayNhap,
+            chkConKinhDoanh, btnThem, btnSua, btnXoa, btnLamMoi, picSanPham, btnChonAnh
+        });
+
+        lblMa.Name = "lblMa";
+        lblMa.Text = "Mã SP:";
+        lblMa.Location = new Point(15, 33);
+        lblMa.AutoSize = true;
+
+        txtMaSP.Name = "txtMaSP";
+        txtMaSP.Location = new Point(110, 30);
+        txtMaSP.Size = new Size(210, 23);
+
+        lblTen.Name = "lblTen";
+        lblTen.Text = "Tên SP:";
+        lblTen.Location = new Point(15, 68);
+        lblTen.AutoSize = true;
+
+        txtTenSP.Name = "txtTenSP";
+        txtTenSP.Location = new Point(110, 65);
+        txtTenSP.Size = new Size(210, 23);
+
+        lblLoai.Name = "lblLoai";
+        lblLoai.Text = "Loại SP:";
+        lblLoai.Location = new Point(15, 103);
+        lblLoai.AutoSize = true;
+
+        cboLoaiSP.Name = "cboLoaiSP";
+        cboLoaiSP.DropDownStyle = ComboBoxStyle.DropDownList;
+        cboLoaiSP.Location = new Point(110, 100);
+        cboLoaiSP.Size = new Size(210, 23);
+
+        lblDonGia.Name = "lblDonGia";
+        lblDonGia.Text = "Đơn giá:";
+        lblDonGia.Location = new Point(15, 138);
+        lblDonGia.AutoSize = true;
+
+        numDonGia.Name = "numDonGia";
+        numDonGia.Location = new Point(110, 135);
+        numDonGia.Size = new Size(210, 23);
+        numDonGia.Minimum = 0;
+        numDonGia.Maximum = 1000000000;
+        numDonGia.Increment = 1000;
+        numDonGia.ThousandsSeparator = true;
+        numDonGia.Value = 1;
+
+        lblSoLuong.Name = "lblSoLuong";
+        lblSoLuong.Text = "Số lượng:";
+        lblSoLuong.Location = new Point(15, 173);
+        lblSoLuong.AutoSize = true;
+
+        numSoLuong.Name = "numSoLuong";
+        numSoLuong.Location = new Point(110, 170);
+        numSoLuong.Size = new Size(210, 23);
+        numSoLuong.Minimum = 0;
+        numSoLuong.Maximum = 1000000;
+
+        lblNgayNhap.Name = "lblNgayNhap";
+        lblNgayNhap.Text = "Ngày nhập:";
+        lblNgayNhap.Location = new Point(345, 33);
+        lblNgayNhap.AutoSize = true;
+
+        dtpNgayNhap.Name = "dtpNgayNhap";
+        dtpNgayNhap.Format = DateTimePickerFormat.Short;
+        dtpNgayNhap.Location = new Point(430, 30);
+        dtpNgayNhap.Size = new Size(150, 23);
+
+        chkConKinhDoanh.Name = "chkConKinhDoanh";
+        chkConKinhDoanh.Text = "Còn kinh doanh";
+        chkConKinhDoanh.Checked = true;
+        chkConKinhDoanh.AutoSize = true;
+        chkConKinhDoanh.Location = new Point(345, 68);
+
+        btnThem.Name = "btnThem";
+        btnThem.Text = "Thêm";
+        btnThem.Location = new Point(345, 110);
+        btnThem.Size = new Size(110, 32);
+        btnThem.Click += btnThem_Click;
+
+        btnSua.Name = "btnSua";
+        btnSua.Text = "Sửa";
+        btnSua.Location = new Point(470, 110);
+        btnSua.Size = new Size(110, 32);
+        btnSua.Click += btnSua_Click;
+
+        btnXoa.Name = "btnXoa";
+        btnXoa.Text = "Xóa";
+        btnXoa.Location = new Point(345, 155);
+        btnXoa.Size = new Size(110, 32);
+        btnXoa.Click += btnXoa_Click;
+
+        btnLamMoi.Name = "btnLamMoi";
+        btnLamMoi.Text = "Làm mới";
+        btnLamMoi.Location = new Point(470, 155);
+        btnLamMoi.Size = new Size(110, 32);
+        btnLamMoi.Click += LamMoi_Click;
+
+        picSanPham.Name = "picSanPham";
+        picSanPham.BorderStyle = BorderStyle.FixedSingle;
+        picSanPham.SizeMode = PictureBoxSizeMode.Zoom;
+        picSanPham.Location = new Point(620, 25);
+        picSanPham.Size = new Size(190, 160);
+
+        btnChonAnh.Name = "btnChonAnh";
+        btnChonAnh.Text = "Chọn ảnh...";
+        btnChonAnh.Location = new Point(620, 192);
+        btnChonAnh.Size = new Size(190, 30);
+        btnChonAnh.Click += btnChonAnh_Click;
+
+        // ---- dgvProducts ----
+        dgvProducts.Name = "dgvProducts";
+        dgvProducts.Dock = DockStyle.Fill;
+        dgvProducts.BackgroundColor = SystemColors.Window;
+        dgvProducts.ContextMenuStrip = cmsProducts;
+        dgvProducts.SelectionChanged += dgvProducts_SelectionChanged;
+        dgvProducts.CellMouseDown += dgvProducts_CellMouseDown;
+        dgvProducts.CellDoubleClick += dgvProducts_CellDoubleClick;
+        dgvProducts.KeyDown += dgvProducts_KeyDown;
+
+        // ---- cmsProducts ----
+        cmsProducts.Name = "cmsProducts";
+        cmsProducts.Items.AddRange(new ToolStripItem[] { cmsSua, cmsXoa, cmsChiTiet });
+
+        cmsSua.Name = "cmsSua";
+        cmsSua.Text = "Sửa";
+        cmsSua.Click += cmsSua_Click;
+
+        cmsXoa.Name = "cmsXoa";
+        cmsXoa.Text = "Xóa";
+        cmsXoa.Click += btnXoa_Click;
+
+        cmsChiTiet.Name = "cmsChiTiet";
+        cmsChiTiet.Text = "Xem chi tiết";
+        cmsChiTiet.Click += cmsChiTiet_Click;
+
+        // ---- errorProvider1 ----
+        errorProvider1.ContainerControl = this;
+        errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+        // ---- FrmProduct ----
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(900, 640);
+        MinimumSize = new Size(860, 560);
+        StartPosition = FormStartPosition.CenterScreen;
+        Name = "FrmProduct";
+        Text = "Quản lý sản phẩm";
+        MainMenuStrip = menuStrip1;
+        // Thứ tự Add quan trọng với Dock: control Fill thêm trước, các control Top thêm sau
+        Controls.Add(dgvProducts);
+        Controls.Add(grpThongTin);
+        Controls.Add(statusStrip1);
+        Controls.Add(toolStrip1);
+        Controls.Add(menuStrip1);
+        Load += FrmProduct_Load;
+
+        menuStrip1.ResumeLayout(false);
+        menuStrip1.PerformLayout();
+        toolStrip1.ResumeLayout(false);
+        toolStrip1.PerformLayout();
+        statusStrip1.ResumeLayout(false);
+        statusStrip1.PerformLayout();
+        grpThongTin.ResumeLayout(false);
+        grpThongTin.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)numDonGia).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numSoLuong).EndInit();
+        ((System.ComponentModel.ISupportInitialize)picSanPham).EndInit();
+        ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+        ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+        cmsProducts.ResumeLayout(false);
+        ResumeLayout(false);
+        PerformLayout();
+    }
+
+    private MenuStrip menuStrip1 = null!;
+    private ToolStripMenuItem mnuFile = null!;
+    private ToolStripMenuItem mnuLamMoi = null!;
+    private ToolStripMenuItem mnuXuatTxt = null!;
+    private ToolStripSeparator mnuSep1 = null!;
+    private ToolStripMenuItem mnuThoat = null!;
+    private ToolStripMenuItem mnuQuanLy = null!;
+    private ToolStripMenuItem mnuThem = null!;
+    private ToolStripMenuItem mnuSua = null!;
+    private ToolStripMenuItem mnuXoa = null!;
+    private ToolStripMenuItem mnuTimKiem = null!;
+    private ToolStripSeparator mnuSep2 = null!;
+    private ToolStripMenuItem mnuSapXepGia = null!;
+    private ToolStripMenuItem mnuSapXepSL = null!;
+    private ToolStripMenuItem mnuTroGiup = null!;
+    private ToolStripMenuItem mnuGioiThieu = null!;
+
+    private ToolStrip toolStrip1 = null!;
+    private ToolStripButton tsbThem = null!;
+    private ToolStripButton tsbSua = null!;
+    private ToolStripButton tsbXoa = null!;
+    private ToolStripButton tsbLamMoi = null!;
+    private ToolStripSeparator tssSep = null!;
+    private ToolStripLabel tslTimKiem = null!;
+    private ToolStripTextBox tstTimKiem = null!;
+    private ToolStripButton tsbTimKiem = null!;
+
+    private StatusStrip statusStrip1 = null!;
+    private ToolStripStatusLabel lblStatus = null!;
+    private ToolStripStatusLabel lblCount = null!;
+    private ToolStripStatusLabel lblTongTon = null!;
+
+    private GroupBox grpThongTin = null!;
+    private Label lblMa = null!;
+    private Label lblTen = null!;
+    private Label lblLoai = null!;
+    private Label lblDonGia = null!;
+    private Label lblSoLuong = null!;
+    private Label lblNgayNhap = null!;
+    private TextBox txtMaSP = null!;
+    private TextBox txtTenSP = null!;
+    private ComboBox cboLoaiSP = null!;
+    private NumericUpDown numDonGia = null!;
+    private NumericUpDown numSoLuong = null!;
+    private DateTimePicker dtpNgayNhap = null!;
+    private CheckBox chkConKinhDoanh = null!;
+    private Button btnThem = null!;
+    private Button btnSua = null!;
+    private Button btnXoa = null!;
+    private Button btnLamMoi = null!;
+    private PictureBox picSanPham = null!;
+    private Button btnChonAnh = null!;
+
+    private DataGridView dgvProducts = null!;
+    private ContextMenuStrip cmsProducts = null!;
+    private ToolStripMenuItem cmsSua = null!;
+    private ToolStripMenuItem cmsXoa = null!;
+    private ToolStripMenuItem cmsChiTiet = null!;
+    private ErrorProvider errorProvider1 = null!;
+}
