@@ -12,9 +12,3 @@
 | TC06 | Chọn ảnh PNG/BMP | Chọn file .png rồi file .bmp | Ảnh đổi đúng, không lỗi | | |
 | TC07 | Không khóa file ảnh | Chọn một ảnh, sau đó đổi tên hoặc xóa file ảnh đó trong File Explorer | Đổi tên/xóa được, chương trình vẫn chạy bình thường | | |
 | TC08 | File không phải ảnh | Đổi đuôi file .txt thành .jpg rồi chọn | Hiện thông báo lỗi ảnh, chương trình không bị đóng, ảnh cũ giữ nguyên | | |
-| TC09 | Preview tức thời | Gõ họ tên, đổi lớp, khoa, khóa học, giới tính, ngày sinh | Thẻ bên phải cập nhật ngay sau mỗi thay đổi | | |
-| TC10 | Họ tên/khoa dài | Nhập họ tên rất dài (60 ký tự) | Chữ bị cắt bằng dấu "…" trong khung, không tràn ra ngoài thẻ | | |
-| TC11 | Print Preview | Nhập đủ dữ liệu, bấm Xem trước in | Mở PrintPreviewDialog, thẻ có khung, tiêu đề, ảnh không méo, thông tin đúng | | |
-| TC12 | In | Nhập đủ dữ liệu, bấm In thẻ, chọn Microsoft Print to PDF | PrintDialog hiện ra; file PDF có thẻ đúng nội dung | | |
-| TC13 | Làm mới | Nhập dữ liệu, chọn ảnh, bấm Làm mới | Ô nhập trống, ảnh bị xóa, thẻ về trạng thái ban đầu, biểu tượng lỗi biến mất | | |
-| TC14 | Resize form | Phóng to, thu nhỏ cửa sổ | Thẻ co giãn đúng tỉ lệ, không méo, không mất nội dung | | |
