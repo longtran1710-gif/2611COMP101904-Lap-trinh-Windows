@@ -1,11 +1,5 @@
 # COMP1019_Lab09_StudentCard
 
-Ứng dụng WinForms thiết kế và in thẻ sinh viên (COMP1019 - Buổi 9).
-
-## Cách chạy
-1. Mở file `COMP1019_Lab09_StudentCard.csproj` bằng Visual Studio 2022 trở lên (không mở riêng từng file .cs).
-2. Nhấn F5. Project dùng `net8.0-windows`; nếu máy dùng .NET khác thì sửa `TargetFramework` trong `.csproj`.
-
 ## Cách dùng
 1. Nhập mã sinh viên, họ tên, chọn ngày sinh, giới tính, lớp, khoa, khóa học; bấm **Chọn ảnh...** để chọn ảnh JPG/PNG/BMP.
 2. Thẻ ở bên phải được vẽ lại ngay khi dữ liệu thay đổi.
