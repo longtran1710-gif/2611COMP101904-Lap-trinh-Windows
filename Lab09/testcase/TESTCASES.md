@@ -4,7 +4,8 @@
 
 | STT | Chức năng | Bước thực hiện | Kết quả mong đợi | Kết quả thực tế | Đạt/Không đạt |
 |---|---|---|---|---|---|
-| TC01 | Khởi động | Mở chương trình | Form hiện đủ vùng nhập và vùng thẻ; thẻ có khung, tiêu đề, ô "ẢNH 3x4" trống | | |
+| TC01 | Khởi động | Mở chương trình | Form hiện đủ vùng nhập và vùng thẻ; thẻ có khung, tiêu đề, ô "ẢNH 3x4" trống <img width="1053" height="592" alt="image" src="https://github.com/user-attachments/assets/3745ced5-5bd5-4931-8cdc-79c09ba47845" />
+
 | TC02 | Validation mã SV | Để trống mã SV, nhập họ tên, chọn ảnh, bấm Xem trước in | Hiện thông báo thiếu "Mã sinh viên", ô mã có biểu tượng lỗi, không mở preview | | |
 | TC03 | Validation họ tên | Nhập mã SV, để trống họ tên, chọn ảnh, bấm In thẻ | Hiện thông báo thiếu "Họ tên", không mở PrintDialog | | |
 | TC04 | Validation ảnh | Nhập mã SV và họ tên, chưa chọn ảnh, bấm Xem trước in | Hiện thông báo thiếu "Ảnh đại diện", không mở preview | | |
