@@ -1,8 +1,6 @@
 # Test case - Lab 09 Thẻ sinh viên
 
-Điền cột "Kết quả thực tế" và "Đạt/Không đạt" sau khi chạy thử từng test case.
-
-| STT | Chức năng | Bước thực hiện | Kết quả mong đợi | Kết quả thực tế | Đạt/Không đạt |
+| STT | Chức năng | Bước thực hiện | Kết quả mong đợi | Kết quả thực tế |
 |---|---|---|---|---|---|
 | TC01 | Khởi động | Mở chương trình | Form hiện đủ vùng nhập và vùng thẻ; thẻ có khung, tiêu đề, ô "ẢNH 3x4" trống | | |
 | TC02 | Validation mã SV | Để trống mã SV, nhập họ tên, chọn ảnh, bấm Xem trước in | Hiện thông báo thiếu "Mã sinh viên", ô mã có biểu tượng lỗi, không mở preview | | |
