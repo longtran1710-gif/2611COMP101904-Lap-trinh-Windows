@@ -1,6 +1,6 @@
 # COMP1019_Lab11_LopManager
 
-Ứng dụng WinForms quản lý lớp học bằng ADO.NET (Microsoft.Data.SqlClient) với SQL Server (COMP1019 - Buổi 11).
+Ứng dụng WinForms quản lý lớp học bằng ADO.NET (Microsoft.Data.SqlClient) với SQL Server 
 
 ## Chuẩn bị database
 1. Mở SSMS, kết nối vào SQL Server.
@@ -43,6 +43,3 @@ Nếu máy khác dùng tên server khác thì chỉ cần sửa đúng một ch�
 
 ## Ghi chú về cột Khoa
 Bảng LOP của Lab 10 có cột MaKhoa bắt buộc (khóa ngoại tới KHOA) nên Form có thêm ô chọn Khoa. Nếu chạy trên database chỉ có LOP(MaLop, TenLop) như script tối thiểu trong đề thì ứng dụng tự phát hiện và ẩn ô chọn Khoa.
-
-## Ảnh chụp màn hình
-Chụp Form đang hiển thị danh sách lớp lấy từ SQL Server, bỏ vào thư mục `screenshots` và chèn vào đây.
