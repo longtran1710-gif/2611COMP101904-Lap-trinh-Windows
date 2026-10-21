@@ -1,7 +1,5 @@
 # Lab 10 - Cơ sở dữ liệu EduManagerDB (SQL Server)
 
-Báo cáo ngắn cho COMP1019 - Buổi 10.
-
 ## Cách chạy
 Mở SQL Server Management Studio (hoặc Azure Data Studio), kết nối vào SQL Server rồi chạy lần lượt:
 1. `01_CreateDatabase.sql` - xóa database cũ nếu có, tạo `EduManagerDB`, tạo 6 bảng và ràng buộc.
