@@ -34,5 +34,5 @@ Lab 13 COMP1019: module báo cáo danh sách sinh viên theo lớp (C# WinForms,
 - Thống kê: CNTT01 (5 sinh viên, 3 đạt, 2 không đạt, TB 6.50), CNTT02 (5, 4, 1, 6.20), SPTIN01 (4, 3, 1, 5.88), SPTOAN01 (2, 1, 1, 5.90).
 
 ## Ảnh chụp và file xuất
-- Chụp Form sau khi lọc (ví dụ chọn lớp CNTT01, kết quả Không đạt) và thống kê, bỏ vào thư mục `screenshots`.
+- Chụp Form sau khi lọc (ví dụ chọn lớp CNTT01, kết quả Không đạt) và thống kê, bỏ vào thư mục `images`.
 - File báo cáo `.csv` hoặc `.txt` đã xuất bằng nút Xuất file đặt vào thư mục `output`.
