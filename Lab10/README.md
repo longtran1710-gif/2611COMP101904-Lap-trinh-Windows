@@ -1,7 +1,5 @@
 # Lab 10 - Cơ sở dữ liệu EduManagerDB (SQL Server)
 
-Báo cáo ngắn cho COMP1019 - Buổi 10.
-
 ## Cách chạy
 Mở SQL Server Management Studio (hoặc Azure Data Studio), kết nối vào SQL Server rồi chạy lần lượt:
 1. `01_CreateDatabase.sql` - xóa database cũ nếu có, tạo `EduManagerDB`, tạo 6 bảng và ràng buộc.
@@ -37,5 +35,3 @@ Thêm: 13 giới tính sai, 14 số tín chỉ bằng 0, 15 nhập trùng điể
 - Test 12, 13, 14: lỗi 547, vi phạm CHECK constraint.
 - Test 15: lỗi 2627, vi phạm PRIMARY KEY.
 
-## Ảnh chụp kết quả
-Chụp màn hình kết quả các truy vấn 2, 8, 9, 10 và tab Messages của các test 11, 12 rồi đặt vào thư mục `screenshots`.
