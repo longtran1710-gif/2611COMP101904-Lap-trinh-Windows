@@ -1,7 +1,6 @@
 # QLSinhVienLab12 - Nhập điểm theo lớp
 
-Lab 12 COMP1019: Data Binding, Stored Procedure và Transaction (C# WinForms, SQL Server, Microsoft.Data.SqlClient).
-
+Lab 12 COMP1019: Data Binding, Stored Procedure và Transaction 
 ## Chuẩn bị database
 1. Mở SSMS, kết nối vào SQL Server.
 2. Mở file `Database/QLSinhVienLab12.sql` và bấm F5. Script tạo database `QLSinhVienLab12`, 4 bảng, dữ liệu mẫu và 4 stored procedure. Chạy lại script bất cứ lúc nào để đưa dữ liệu về ban đầu.
@@ -36,5 +35,3 @@ Server=localhost\SQLEXPRESS;Database=QLSinhVienLab12;Trusted_Connection=True;Tru
 - `Models/KetQuaItem.cs`: một dòng điểm cần lưu.
 - `Database/QLSinhVienLab12.sql`: script database, dữ liệu mẫu, stored procedure.
 
-## Ảnh chụp màn hình
-Chụp Form trước khi lưu (đã tải lớp CNTT01, môn MH01, đã nhập điểm) và sau khi lưu (thông báo thành công, danh sách tải lại), bỏ vào thư mục `screenshots`.
